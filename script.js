@@ -16,3 +16,28 @@ const handleSearch = (e) => {
 };
 
 searchBtn.addEventListener("click", handleSearch);
+
+// Product View
+const viewItemBtn = document.getElementById("viewItem");
+const addToCart = document.getElementById("addToCart");
+const purchase = document.getElementById("purchase");
+
+const viewItem = () => {
+  gtag("event", "view_item", {
+    currency: "KRW",
+    value: 129000,
+    items: [
+      // item: [] 은 반드시 포함되어야 전자상거래 태그, 나머지는 커스터마이징 가능
+      {
+        item_id: "EP1001",
+        item_name: "무선 이어폰",
+        currency: "KRW",
+        price: 129000,
+        quantity: 1,
+      },
+    ],
+  });
+  alert("view_item 이벤트 발생");
+};
+
+viewItemBtn.addEventListener("click", viewItem);
